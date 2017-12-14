@@ -14,6 +14,6 @@ const getRandomPallette = () => {
 
 app.use(cors());
 
-app.get('/ck001p', (req, res) => res.send(getRandomPallette()))
+app.get('/', (req, res) => res.send(getRandomPallette()))
 
 app.listen(process.env.PORT || 3000);
