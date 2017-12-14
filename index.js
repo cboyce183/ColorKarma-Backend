@@ -1,4 +1,5 @@
-const express = require('express')
+const express = require('express');
+var cors = require('cors')
 const app = express()
 const palettes = require('./palettes');
 
@@ -11,6 +12,8 @@ const getRandomPallette = () => {
   return palettes[getRandomPalletteIndex()];
 }
 
+app.use(cors());
+
 app.get('/ck001p', (req, res) => res.send(getRandomPallette()))
 
-app.listen(3000, () => console.log('Color Karma listening on port 3000!'))
+app.listen(process.env.PORT || 3000);
